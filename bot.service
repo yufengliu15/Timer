@@ -1,0 +1,15 @@
+[Unit]
+Description=Discord Bot Timer
+After=multi-user.target
+
+[Service]
+Type=simple
+Restart=always
+ExecStart=/home/yufenliu/Timer/venv/bin/python3 /home/yufenliu/Timer/bot.py
+WorkingDirectory=/home/yufenliu/Timer
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=timer_bot
+
+[Install]
+WantedBy=multi-user.target

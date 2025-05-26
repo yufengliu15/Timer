@@ -15,12 +15,6 @@ intents.members = True          # Recommended for user mentions and member prope
 
 bot = commands.Bot(command_prefix=COMMAND_PREFIX, intents=intents, help_command=commands.DefaultHelpCommand())
 
-timer_running = False
-timer_seconds_remaining = 0
-timer_participants = set()    
-timer_message_channel = None  
-timer_starter = None          
-
 # --- Helper function to format time (remains the same) ---
 def format_time(seconds):
     """Converts seconds to a string in MM:SS or HH:MM:SS format if hours are present."""
@@ -238,6 +232,11 @@ async def on_command_error(ctx, error):
         await ctx.send("An unexpected error occurred. Please try again.")
 
 if __name__ == "__main__":
+    timer_running = False
+    timer_seconds_remaining = 0
+    timer_participants = set()    
+    timer_message_channel = None  
+    timer_starter = None          
     if TOKEN:
         try:
             bot.run(TOKEN)
